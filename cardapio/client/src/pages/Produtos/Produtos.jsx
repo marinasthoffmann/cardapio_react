@@ -12,7 +12,6 @@ export const Produtos = () => {
     };
 
     const handleSelecionar = (id) => {
-        console.log(id);
         if(isSelecionado(id)) {
             setSelecionados((prev) => prev.filter((item) => item !== id));
             return;
