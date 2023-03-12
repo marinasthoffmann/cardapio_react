@@ -1,9 +1,25 @@
 import './Produtos.css';
 import { Card } from '../../components/card';
+import { useState } from 'react';
 import { useProdutos } from '../../hooks/useProdutos';
 
 export const Produtos = () => {
     const { error, isLoading, produtos } = useProdutos();
+    const [selecionados, setSelecionados] = useState([]);
+
+    const isSelecionado = (id) => {
+        return selecionados.some((item) => item === id);
+    };
+
+    const handleSelecionar = (id) => {
+        console.log(id);
+        if(isSelecionado(id)) {
+            setSelecionados((prev) => prev.filter((item) => item !== id));
+            return;
+        }
+        
+        setSelecionados((prev) => [...prev, id ]);
+    }
   
     if (isLoading) {
         return <p>Carregando...</p>
@@ -32,6 +48,8 @@ export const Produtos = () => {
                       descricao={item.descricao}
                       valor={item.valor}
                       tempoPreparo={item.tempoPreparo}
+                      selecionado={isSelecionado(item.id)}
+                      onSelecionar={handleSelecionar}
                     />
                   ))}
                 </div>
