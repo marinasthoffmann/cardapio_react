@@ -5,6 +5,8 @@
     width: 300px;
     background-color: #1d1d1d;
     border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid black;
 }
 
 .card-info {
@@ -27,4 +29,12 @@
     display: flex;
     justify-content: space-between;
     color: #fff47d;
+}
+
+.card-selecionado {
+    border: 1px solid #fff47d;
+}
+
+.img{
+    border-radius: 10px;
 }

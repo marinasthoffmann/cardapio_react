@@ -26,6 +26,7 @@ export const Produtos = () => {
                   {produtos[secao].map((item) => (
                     <Card
                       key={item.id}
+                      id={item.id}
                       imagem={item.img}
                       nome={item.nome}
                       descricao={item.descricao}
